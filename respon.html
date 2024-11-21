@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurongojeb Lishad</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(0, 0, 33);
+            color: aliceblue;
+            font-family: 'Funnel Display', serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+            background-color: rgba(5, 5, 58, 0.8);
+            padding: 0 20px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            color: rgb(153, 153, 226);
+            font-size: 1.02rem;
+        }
+
+        .left {
+            font-size: 1.5rem;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 50px 20px;
+            flex-wrap: wrap;
+        }
+
+        .firstSection>div {
+            width: 45%;
+        }
+
+        .leftSection {
+            font-size: 1.8rem;
+        }
+
+        .rightSection img {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .purple {
+            color: rgb(127, 127, 243);
+        }
+
+        .text-gray {
+            color: gray;
+        }
+
+        #element {
+            color: rgb(123, 123, 245);
+        }
+
+        .secondSection {
+            max-width: 90vw;
+            margin: auto;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(50, 50, 150, 0.5));
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .secondSection h1 {
+            font-size: 2rem;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .vertical {
+            height: auto;
+            width: 100%;
+            max-width: 180px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            color: aliceblue;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .vertical:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.2), rgba(100, 100, 200, 0.4));
+        }
+
+        .vertical img {
+            width: 50px;
+            margin-bottom: 10px;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
+        }
+
+        .vertical-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #ffd700;
+        }
+
+        .vertical-desc {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .firstSection>div {
+                width: 90%;
+                text-align: center;
+            }
+
+            .leftSection {
+                font-size: 1.2rem;
+            }
+
+            .secondSection .box {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                height: auto;
+            }
+
+            nav .left {
+                margin-bottom: 10px;
+                font-size: 1.2rem;
+            }
+
+            .firstSection {
+                margin: 20px 10px;
+            }
+
+            .secondSection {
+                padding: 10px;
+            }
+
+            .vertical {
+                width: 90%;
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Lishad's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Projects</a></li>
+                    <li><a href="/">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="firstSection">
+            <div class="leftSection">
+                Hi, My name is <span class="purple">Aurongojeb Lishad</span>
+                <div>I am a </div>
+                <span id="element"></span>
+            </div>
+            <div class="rightSection">
+                <img src="hi.png" alt="">
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="secondSection">
+            <span class="text-gray">What I have Done</span>
+            <h1>Skills</h1>
+            <div class="box">
+                <div class="vertical">
+                    <img src="php.png" alt="PHP">
+                    <div class="vertical-title">PHP Developer</div>
+                    <div class="vertical-desc">Expert in backend development using PHP since 2023.</div>
+                </div>
+                <div class="vertical">
+                    <img src="html.png" alt="HTML">
+                    <div class="vertical-title">HTML</div>
+                    <div class="vertical-desc">Proficient in creating semantic, accessible, and responsive HTML.</div>
+                </div>
+                <div class="vertical">
+                    <img src="css.png" alt="CSS">
+                    <div class="vertical-title">CSS</div>
+                    <div class="vertical-desc">Skilled in designing visually appealing and responsive layouts.</div>
+                </div>
+                <div class="vertical">
+                    <img src="javascript.png" alt="JavaScript">
+                    <div class="vertical-title">JavaScript</div>
+                    <div class="vertical-desc">Experienced in adding interactivity and dynamic features to web pages.</div>
+                </div>
+                <div class="vertical">
+                    <img src="mysql.png" alt="MySQL">
+                    <div class="vertical-title">MySQL</div>
+                    <div class="vertical-desc">Proficient in database design and writing optimized SQL queries.</div>
+                </div>
+                <div class="vertical">
+                    <img src="nodejs.png" alt="Node.js">
+                    <div class="vertical-title">Node.js</div>
+                    <div class="vertical-desc">Experienced in building scalable backend systems using Node.js.</div>
+                </div>
+                <div class="vertical">
+                    <img src="git.png" alt="Git">
+                    <div class="vertical-title">Git</div>
+                    <div class="vertical-desc">Version control expertise with Git for team collaboration.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Student of Computer Science', 'Developer', 'Business enthusiast', 'Investor'],
+            typeSpeed: 50,
+        });
+    </script>
+</body>
+
+</html>
