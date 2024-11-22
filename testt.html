@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aurongojeb Lishad</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
@@ -71,10 +70,61 @@
             margin: 20px;
         }
 
+        .rightSection {
+            position: relative;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
         .rightSection img {
             width: 100%;
             max-width: 400px;
             border-radius: 12px;
+        }
+
+        .dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        .dot {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            border-radius: 50%;
+            animation: rotateDots 4s linear infinite;
+            
+            
+        }
+
+        .dot1 {
+            animation-delay: 0s;
+            
+        }
+
+        .dot2 {
+            animation-delay: 2s;
+        }
+
+        @keyframes rotateDots {
+            0% {
+                transform: rotate(0deg) translateX(200px) rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg) translateX(200px) rotate(-360deg);
+            }
         }
 
         .socialLinks {
@@ -82,7 +132,6 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 20px;
         }
 
         .socialLinks a img {
@@ -169,6 +218,7 @@
             font-size: 0.9rem;
             color: #e0e0e0;
         }
+
         .leftSection button {
             margin-top: 20px;
             margin-right: 10px;
@@ -181,13 +231,11 @@
             cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease;
         }
+
         .leftSection button:hover {
             background: linear-gradient(to right, rgb(0, 122, 204), rgb(127, 127, 243));
             transform: scale(1.05);
         }
-
-        
-
     </style>
 </head>
 
@@ -213,15 +261,20 @@
                 Hi, My name is <span class="purple">Aurongojeb Lishad</span>
                 <div>I am a </div>
                 <span id="element"></span>
-                 <!-- Buttons -->
-                  <div>
-                 <button onclick="window.open('CV.pdf', '_blank')">View CV</button>
-                 <button onclick="window.location.href='CV.pdf'">Download CV</button>
+                <!-- Buttons -->
+                <div>
+                    <button onclick="window.open('CV.pdf', '_blank')">View CV</button>
+                    <button onclick="window.location.href='CV.pdf'">Download CV</button>
                 </div>
             </div>
             <div class="rightSection">
                 <img src="hi.png" alt="Profile Picture">
-                
+                <!-- Rotating dots -->
+                <div class="dots">
+                    <div class="dot dot1"></div>
+                    <div class="dot dot2"></div>
+                </div>
+                <!-- Social Links -->
                 <div class="socialLinks">
                     <a href="https://facebook.com/yourprofile" target="_blank">
                         <img src="facebook (2).png" alt="Facebook" title="Facebook">
@@ -237,66 +290,65 @@
                     </a>
                 </div>
             </div>
-
-
         </section>
 
-        <!-- Skills Section -->
-        <section class="secondSection">
-            <span class="text-gray">What I have Done</span>
-            <h1>Skills</h1>
-            <div class="box">
-                <div class="vertical">
-                    <img src="ml.png" alt="Machine Learning">
-                    <div class="vertical-title">Machine Learning</div>
-                    <div class="vertical-desc">Worked with machine learning since 2024</div>
-                </div>
-                <div class="vertical">
-                    <img src="java2.png" alt="Java">
-                    <div class="vertical-title">JAVA</div>
-                    <div class="vertical-desc">Proficient in OOP and Java concepts</div>
-                </div>
-                <div class="vertical">
-                    <img src="c.png" alt="C">
-                    <div class="vertical-title">C</div>
-                    <div class="vertical-desc">Started programming with C</div>
-                </div>
-                <div class="vertical">
-                    <img src="php.png" alt="PHP">
-                    <div class="vertical-title">PHP</div>
-                    <div class="vertical-desc">Developed multiple websites using PHP</div>
-                </div>
-                <div class="vertical">
-                    <img src="s3.png" alt="MySQL">
-                    <div class="vertical-title">MySQL</div>
-                    <div class="vertical-desc">Expertise in databases and queries</div>
-                </div>
-                <div class="vertical">
-                    <img src="html.png" alt="HTML">
-                    <div class="vertical-title">HTML</div>
-                    <div class="vertical-desc">Basic HTML concepts</div>
-                </div>
-                <div class="vertical">
-                    <img src="css.png" alt="CSS">
-                    <div class="vertical-title">CSS</div>
-                    <div class="vertical-desc">Proficient in styling with CSS</div>
-                </div>
-                <div class="vertical">
-                    <img src="git2.png" alt="Git">
-                    <div class="vertical-title">Git</div>
-                    <div class="vertical-desc">Version control and collaboration expertise</div>
-                </div>
+        <!-- Other Sections -->
+       <!-- Skills Section -->
+       <section class="secondSection">
+        <span class="text-gray">What I have Done</span>
+        <h1>Skills</h1>
+        <div class="box">
+            <div class="vertical">
+                <img src="ml.png" alt="Machine Learning">
+                <div class="vertical-title">Machine Learning</div>
+                <div class="vertical-desc">Worked with machine learning since 2024</div>
             </div>
-        </section>
-    </main>
+            <div class="vertical">
+                <img src="java2.png" alt="Java">
+                <div class="vertical-title">JAVA</div>
+                <div class="vertical-desc">Proficient in OOP and Java concepts</div>
+            </div>
+            <div class="vertical">
+                <img src="c.png" alt="C">
+                <div class="vertical-title">C</div>
+                <div class="vertical-desc">Started programming with C</div>
+            </div>
+            <div class="vertical">
+                <img src="php.png" alt="PHP">
+                <div class="vertical-title">PHP</div>
+                <div class="vertical-desc">Developed multiple websites using PHP</div>
+            </div>
+            <div class="vertical">
+                <img src="s3.png" alt="MySQL">
+                <div class="vertical-title">MySQL</div>
+                <div class="vertical-desc">Expertise in databases and queries</div>
+            </div>
+            <div class="vertical">
+                <img src="html.png" alt="HTML">
+                <div class="vertical-title">HTML</div>
+                <div class="vertical-desc">Basic HTML concepts</div>
+            </div>
+            <div class="vertical">
+                <img src="css.png" alt="CSS">
+                <div class="vertical-title">CSS</div>
+                <div class="vertical-desc">Proficient in styling with CSS</div>
+            </div>
+            <div class="vertical">
+                <img src="git2.png" alt="Git">
+                <div class="vertical-title">Git</div>
+                <div class="vertical-desc">Version control and collaboration expertise</div>
+            </div>
+        </div>
+    </section>
+</main>
 
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script>
-        var typed = new Typed('#element', {
-            strings: ['Student of Computer Science', 'Developer', 'Business enthusiast', 'Investor', 'Student of Computer Science'],
-            typeSpeed: 50,
-        });
-    </script>
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script>
+    var typed = new Typed('#element', {
+        strings: ['Student of Computer Science', 'Developer', 'Business enthusiast', 'Investor', 'Student of Computer Science'],
+        typeSpeed: 50,
+    });
+</script>
 </body>
 
 </html>
