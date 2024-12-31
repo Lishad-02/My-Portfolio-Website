@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Aurongojeb Lishad</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #282846);
+            color: #fff;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+            
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: -1;
+            animation: zoomEffect 20s ease-in-out infinite;
+        }
+
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-top: 20px;
+            z-index: 10;
+            position: relative;
+        }
+
+        nav {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #b5e40b;
+            
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            padding: 50px 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .project-card {
+            background: #08557F;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .project-card a {
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background: #5F7429;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-card a:hover {
+            background-color: #08891b;
+        }
+
+        /* Canvas Container */
+        #bouncing-balls {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bouncing-balls"></div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <h1>My Projects</h1>
+
+    <!-- Projects Section -->
+    <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+            <h3>Project 1</h3>
+            <p>Description of Project 1</p>
+            <a href="https://github.com/user/project1" target="_blank">View Project</a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+            <h3>Project 2</h3>
+            <p>Description of Project 2</p>
+            <a href="https://github.com/user/project2" target="_blank">View Project</a>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+            <h3>Project 3
+
+            </h3>
+            <p>Description of Project 3 uafbzsjfnkjzshfcizsjhbfias cnmzxhcfasubfzsjcvjzxcvz
+                zfzabvzpjvhjzxbvnzknvkjzjvzdjnvz
+            </p>
+            <a href="https://github.com/user/project3" target="_blank">View Project</a>
+        </div>
+        <!-- Project 4 -->
+        <div class="project-card">
+            <h3>Project 3</h3>
+            <p>Description of Project 3</p>
+            <a href="https://github.com/user/project3" target="_blank">View Project</a>
+        </div>
+        <!-- Project 5 -->
+        <div class="project-card">
+            <h3>Project 3</h3>
+            <p>Description of Project 3</p>
+            <a href="https://github.com/user/project3" target="_blank">View Project</a>
+        </div>
+    </div>
+
+    <script>
+        // Ball animation
+        const container = document.getElementById('bouncing-balls');
+        const numBalls = 10; // Number of balls
+        const balls = [];
+
+        const random = (min, max) => Math.random() * (max - min) + min;
+
+        // Create balls
+        for (let i = 0; i < numBalls; i++) {
+            const ball = document.createElement('div');
+            ball.style.position = 'absolute';
+            ball.style.width = `${random(20, 50)}px`;
+            ball.style.height = ball.style.width;
+            ball.style.borderRadius = '50%';
+            ball.style.background = `radial-gradient(circle, white, white)`;
+            ball.style.top = `${random(0, window.innerHeight)}px`;
+            ball.style.left = `${random(0, window.innerWidth)}px`;
+            ball.velocityX = random(2, 5) * (Math.random() < 0.5 ? 1 : -1);
+            ball.velocityY = random(2, 5) * (Math.random() < 0.5 ? 1 : -1);
+            balls.push(ball);
+            container.appendChild(ball);
+        }
+
+        // Animate balls
+        function animate() {
+            balls.forEach((ball) => {
+                const rect = ball.getBoundingClientRect();
+                let nextX = rect.left + ball.velocityX;
+                let nextY = rect.top + ball.velocityY;
+
+                // Check boundaries
+                if (nextX <= 0 || nextX + rect.width >= window.innerWidth) {
+                    ball.velocityX *= -1;
+                }
+                if (nextY <= 0 || nextY + rect.height >= window.innerHeight) {
+                    ball.velocityY *= -1;
+                }
+
+                ball.style.left = `${nextX}px`;
+                ball.style.top = `${nextY}px`;
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+
+</html>

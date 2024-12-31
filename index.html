@@ -5,31 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aurongojeb Lishad</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
-
 
     <style>
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             background-color: rgb(0, 0, 33);
             color: aliceblue;
-            font-family: 'funnel display', serif;
+            font-family: 'Funnel Display', serif;
+           
         }
+        
 
         nav {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             height: 90px;
-            background-color: rgb(5, 5, 58);
-
+            background-color: rgba(5, 5, 58, 0.8);
+            padding: 0 20px;
         }
 
         nav ul {
@@ -39,7 +40,7 @@
 
         nav ul li {
             list-style: none;
-            margin: 0 23px;
+            margin: 0 15px;
         }
 
         nav ul li a {
@@ -52,38 +53,193 @@
             font-size: 1.02rem;
         }
 
-        main hr {
-            border: 0;
-            background: rgb(103, 156, 248);
-            height: 1.2px;
-            margin: 30px 84px;
-        }
-
         .left {
             font-size: 1.5rem;
-
         }
 
         .firstSection {
             display: flex;
-            justify-content: space-around;
+            margin: auto;
+            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
-            margin: 98px 0;
-        }
-
-        .firstSection>div {
-            width: 30%;
+            padding: 20px;
         }
 
         .leftSection {
-            font-size: 2.3rem;
+            font-size: 1.8rem;
+            text-align: center;
+            max-width: 500px;
+            margin: 20px;
+        }
 
-
+        .rightSection {
+            position: relative;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
         }
 
         .rightSection img {
-            width: 80%;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
+        }
 
+        .orbital-animation {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border: 2px solid rgba(255, 255, 255, 0.943);
+            border-radius: 50%;
+            animation: orbit 6s linear infinite;
+            z-index: -1;
+        }
+
+        .orbital-animation::before,
+        .orbital-animation::after {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: rgba(236, 19, 19, 0.8);
+            border-radius: 100%;
+            animation: pulse 1.5s infinite alternate;
+            background-color: rgb(5, 255, 255);
+        }
+
+        .orbital-animation::before {
+            top: -7px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .orbital-animation::after {
+            bottom: -7px;
+            right: 50%;
+            transform: translateX(50%);
+        }
+
+        .orbit {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            animation: spin 5s linear infinite;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes orbit {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
+        }
+
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ffffff, #ffffff);
+            box-shadow: 0 0 10px #d80909;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) {
+            top: 10%;
+            left: 20%;
+            animation-delay: 0s;
+            animation-duration: 4s;
+        }
+
+        .particle:nth-child(2) {
+            top: 50%;
+            left: 10%;
+            animation-delay: 1s;
+            animation-duration: 6s;
+        }
+
+        .particle:nth-child(3) {
+            top: 70%;
+            left: 30%;
+            animation-delay: 2s;
+            animation-duration: 5s;
+        }
+
+        .particle:nth-child(4) {
+            top: 12%;
+            left: 80%;
+            animation-delay: 3s;
+            animation-duration: 4.5s;
+        }
+
+        .particle:nth-child(5) {
+            top: 50%;
+            right: 10%;
+            animation-delay: 4s;
+            animation-duration: 7s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(20px, -30px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        .socialLinks {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .socialLinks a img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+            
+        }
+
+        .socialLinks a img:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
         }
 
         .purple {
@@ -99,42 +255,169 @@
         }
 
         .secondSection {
-            max-width: 80vw;
+            max-width: 90vw;
             margin: auto;
-            height: 90vh;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(50, 50, 150, 0.5));
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
 
         .secondSection h1 {
-            font-size: 1.9rem;
-            font-style: normal;
+            font-size: 2rem;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
-        .secondSection .box {
-            background: white;
-            width: 80vw;
-            height: 2px;
-            margin: 56px 0;
-            display: flex;
-        }
-
-        .secondSection .vertical {
-            height: 93px;
-            width: 1px;
-            background-color: aliceblue;
-            margin: 0 100px;
-        }
-
-        .image-top{
+        .cube div {
+            position: absolute;
             width: 50px;
-            position: relative;
-            top: -52px;
-            left: -9px;
+            height: 50px;
+            background: linear-gradient(to bottom right, #ffcc00, #ff6600);
+            opacity: 0.9;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        .vertical-title{
 
+        .rotating-box {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(127, 127, 243, 0.3));
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            animation: rotate3D 4s infinite ease-in-out;
+            z-index: -2;
+            /* Places it behind the orbital animation */
         }
-        .vertical-desc{
 
+        @keyframes rotate3D {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+
+            25% {
+                transform: rotateX(90deg) rotateY(45deg) rotateZ(0deg);
+            }
+
+            50% {
+                transform: rotateX(180deg) rotateY(90deg) rotateZ(45deg);
+            }
+
+            75% {
+                transform: rotateX(270deg) rotateY(135deg) rotateZ(90deg);
+            }
+
+            100% {
+                transform: rotateX(360deg) rotateY(180deg) rotateZ(135deg);
+            }
+        }
+
+        /* Keyframes */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .vertical {
+            height: auto;
+            width: 100%;
+            max-width: 180px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            color: aliceblue;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .vertical:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.2), rgba(100, 100, 200, 0.4));
+        }
+
+        .vertical img {
+            width: 100px;
+            margin-bottom: 10px;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
+        }
+
+        .vertical-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #ffd700;
+        }
+
+        .vertical-desc {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+        }
+
+        .leftSection button {
+            margin-top: 20px;
+            margin-right: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background: linear-gradient(to right, rgb(127, 127, 243), rgb(0, 122, 204));
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .leftSection button:hover {
+            background: linear-gradient(to right, rgb(0, 122, 204), rgb(127, 127, 243));
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -143,67 +426,119 @@
     <header>
         <nav>
             <div class="left">Lishad's Portfolio</div>
-            <div class="rigt">
+            <div class="right">
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/">About</a></li>
-                    <li><a href="/">Projects</a></li>
-                    <li><a href="/">Contact Me</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="project.html">Projects</a></li>
+                    <li><a href="contact.html">Contact Me</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-</body>
-<header>
-</header>
-<main>
-    <section class="firstSection">
-        <div class="leftSection">
-            Hi, My name is <span class="purple">Aurongojeb Lishad</span>
-            <div>I am a </div>
-            <span id="element"></span>
-        </div>
-        <div class="rightSection">
-            <img src="hi.png" alt="">
-
-        </div>
-
-    </section>
-
-    <hr>
-
-    <section class="secondSection">
-        <span class="text-gray">What I have Done</span>
-        <h1>Experience</h1>
-        <div class="box">
-            <div class="vertical">
-                <img class="image-top" src="php.png" alt="">
-                <div class="vertical-title">
-                    PHP Developer (2023-Now)
-                </div>
-                <div class="vertical-desc">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe sapiente perspiciatis eius repellat
-                    provident ex dicta, dolore itaque totam rerum consequatur neque voluptatem?
+    <main>
+        <!-- Introduction Section -->
+        <section class="firstSection">
+            <div class="leftSection">
+                Hi, My name is <span class="purple">Aurongojeb Lishad</span>
+                <div>I am a </div>
+                <span id="element"></span>
+                <!-- Buttons -->
+                <div>
+                    <button onclick="window.open('CV.pdf', '_blank')">View CV</button>
+                    <button onclick="window.location.href='CV.pdf'">Download CV</button>
                 </div>
             </div>
-            <div class="vertical"></div>
-            <div class="vertical"></div>
-            <div class="vertical"></div>
-            <div class="vertical"></div>
-        </div>
-    </section>
+            <div class="rightSection">
+                <div class="orbital-animation"></div>
+                <div class="floating-particles">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                </div>
+                <!-- New 3D rotation element -->
+                <div class="rotating-box"></div>
+                <img src="hi.png" alt="Profile Picture">
+                <!-- Social Links -->
+                <div class="socialLinks">
+                    <a href="https://facebook.com/yourprofile" target="_blank">
+                        <img src="facebook (2).png" alt="Facebook" title="Facebook">
+                    </a>
+                    <a href="https://github.com/Lishad-02" target="_blank">
+                        <img src="g3.png" alt="github" title="github">
+                    </a>
+                    <a href="https://www.linkedin.com/in/aurongojeb-lishad-347851282/" target="_blank">
+                        <img src="linkedin.png" alt="LinkedIn" title="LinkedIn">
+                    </a>
+                    <a href="https://instagram.com/yourprofile" target="_blank">
+                        <img src="insta.png" alt="Instagram" title="Instagram">
+                    </a>
+                </div>
+            </div>
 
-</main>
+            </div>
+        </section>
 
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-<!-- Setup and start animation! -->
-<script>
-    var typed = new Typed('#element', {
-        strings: ['Student of Computer Science', 'Developer', 'Business enthusiast', 'Investor'],
-        typeSpeed: 50,
-    });
-</script>
+        <!-- Other Sections -->
+        <!-- Skills Section -->
+        <section class="secondSection">
+            <span class="text-gray">What I have Done</span>
+            <h1>Skills</h1>
+            <div class="box">
+                <div class="vertical">
+                    <img src="ml.png" alt="Machine Learning">
+                    <div class="vertical-title">Machine Learning</div>
+                    <div class="vertical-desc">Worked with machine learning since 2024</div>
+                </div>
+                <div class="vertical">
+                    <img src="java2.png" alt="Java">
+                    <div class="vertical-title">JAVA</div>
+                    <div class="vertical-desc">Proficient in OOP and Java concepts</div>
+                </div>
+                <div class="vertical">
+                    <img src="c.png" alt="C">
+                    <div class="vertical-title">C</div>
+                    <div class="vertical-desc">Started programming with C</div>
+                </div>
+                <div class="vertical">
+                    <img src="php.png" alt="PHP">
+                    <div class="vertical-title">PHP</div>
+                    <div class="vertical-desc">Developed multiple websites using PHP</div>
+                </div>
+                <div class="vertical">
+                    <img src="s3.png" alt="MySQL">
+                    <div class="vertical-title">MySQL</div>
+                    <div class="vertical-desc">Expertise in databases and queries</div>
+                </div>
+                <div class="vertical">
+                    <img src="html.png" alt="HTML">
+                    <div class="vertical-title">HTML</div>
+                    <div class="vertical-desc">Basic HTML concepts</div>
+                </div>
+                <div class="vertical">
+                    <img src="css.png" alt="CSS">
+                    <div class="vertical-title">CSS</div>
+                    <div class="vertical-desc">Proficient in styling with CSS</div>
+                </div>
+                <div class="vertical">
+                    <img src="git2.png" alt="Git">
+                    <div class="vertical-title">Git</div>
+                    <div class="vertical-desc">Version control and collaboration expertise</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Student of Computer Science', 'Developer', 'Business enthusiast', 'Investor', 'Student of Computer Science'],
+            typeSpeed: 50,
+        });
+    </script>
 </body>
 
 </html>

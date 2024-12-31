@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Aurongojeb Lishad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #f0f0f5;
+            overflow-x: hidden;
+            background: black;
+        }
+
+        /* Dynamic Background with Subtle Zoom */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: -10;
+            animation: zoomEffect 5s ease-in-out infinite;
+        }
+
+        @keyframes zoomEffect {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            background: rgba(0, 0, 50, 0.9);
+            padding: 0 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #f0f0f5;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #82ebf2;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #82ebf2;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Main Section */
+        .section {
+            padding: 40px 10%;
+            text-align: center;
+        }
+
+        .about-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 50px 10%;
+        }
+
+        /* Headline Styling */
+        .about-content {
+            flex: 1;
+            max-width: 60%;
+            margin-right: 30px;
+            animation: fadeUp 1.5s ease-out;
+        }
+
+        .about-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            animation: fadeUp 1.5s ease-out;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #F0F0F5;
+        }
+
+        .about-content button {
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #82ebf2, #82ebf2);
+            border: none;
+            border-radius: 5px;
+            color: #1b1b32;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .about-content button:hover {
+            background: linear-gradient(90deg, #82ebf2, #edf2f3);
+        }
+
+        /* Image Styling */
+        .about-image {
+            flex: 1;
+            max-width: 35%;
+            display: flex;
+            justify-content: center;
+            animation: fadeUp 1.5s ease-out;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 21%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Additional Sections */
+        .extra-section {
+            padding: 50px 10%;
+            text-align: center;
+            opacity: 0;
+            animation: fadeUp 2s ease-out forwards;
+        }
+
+        .extra-section:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .extra-section:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .extra-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #82ebf2;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .extra-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #f0f0f5;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .about-content {
+                max-width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .about-image {
+                max-width: 100%;
+            }
+
+            .about-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">Lishad's Portfolio</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="project.html">Projects</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <section class="about-section">
+        <div class="about-content">
+            <h1>About Me</h1>
+            <p>Hi! I'm <span style="color: #80ee98;">Md Aurongojeb Lishad</span>, a BSc student at North South University, Bangladesh. My academic journey has been shaped by a strong interest in Engineering Economics, Data Science & Semi-Conductors.</p>
+            <button onclick="window.location.href='contact.html'">Get in Touch</button>
+        </div>
+        <div class="about-image">
+            <img src="me03.jpg" alt="Aurongojeb Lishad">
+        </div>
+    </section>
+
+    <section class="extra-section">
+        <h2>Educational Life</h2>
+        <p>I am currently pursuing my Bachelor of Science in Computer Science at North South University. My academic life is defined by consistent learning, innovation, and collaboration in projects that challenge my problem-solving skills.</p>
+    </section>
+
+    <section class="extra-section">
+        <h2>Personal Life</h2>
+        <p>Outside of academics, I enjoy exploring new technologies, reading about advancements in semi-conductors, and spending time with family and friends. I also have a passion for traveling and experiencing different cultures.</p>
+    </section>
+</body>
+
+</html>
