@@ -2,263 +2,805 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Aurongojeb Lishad</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400;500&display=swap"
-        rel="stylesheet">
-    <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #f0f0f5;
-            overflow-x: hidden;
-            background: black;
-        }
+    body {
+      background: #f0f4f8;
+      overflow-x: hidden;
+      color: #333;
+    }
 
-        /* Dynamic Background with Subtle Zoom */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            z-index: -10;
-            animation: zoomEffect 5s ease-in-out infinite;
-        }
+    /*button*/
+    
 
-        @keyframes zoomEffect {
-            0%,
-            100% {
-                transform: scale(1);
-            }
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      padding: 15px 20px;
+      z-index: 10;
+    }
 
-            50% {
-                transform: scale(1.05);
-            }
-        }
+    .navbar .nav-brand {
+      color: white;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
 
-        /* Navigation Bar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-            background: rgba(0, 0, 50, 0.9);
-            padding: 0 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      /* Center the buttons */
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+    }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
+    .nav-btn {
+      padding: 12px 25px;
+      font-size: 18px;
+      background-color: transparent;
+      color: white;
+      border: 2px solid #00bcd4;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
 
-        nav ul li {
-            margin: 0 15px;
-        }
+    .nav-btn:hover {
+      background-color: rgba(0, 188, 212, 0.3);
+      transform: translateY(-5px);
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            font-weight: 500;
-            color: #f0f0f5;
-            transition: color 0.3s;
-        }
+    /* Intro Section */
+    .intro-section {
+      height: 100vh;
+      background: url('me300.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      position: relative;
+      filter: brightness(0.5);
+    }
 
-        nav ul li a:hover {
-            color: #82ebf2;
-        }
+    .intro-text h2 {
+      font-size: 4rem;
+      text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+      animation: fadeIn 1.5s ease-in-out;
+    }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #82ebf2;
-            font-family: 'Playfair Display', serif;
-        }
+    /* About Me Section */
+    .about-me {
+      background: linear-gradient(145deg, rgba(31, 128, 60, 0.9), rgba(111, 80, 225, 0.8));
+      padding: 100px 50px;
+      margin-top: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      /* Initially invisible */
+      transform: translateX(-100%);
+      /* Start off-screen (left) */
+      transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+      /* Smooth transition */
+    }
 
-        /* Main Section */
-        .section {
-            padding: 40px 10%;
-            text-align: center;
-        }
+    /* Ensure animation is consistent on all screen sizes */
+    .about-me.show {
+      opacity: 1;
+      transform: translateX(0);
+      /* Slide into view */
+    }
 
-        .about-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            padding: 50px 10%;
-        }
 
-        /* Headline Styling */
-        .about-content {
-            flex: 1;
-            max-width: 60%;
-            margin-right: 30px;
-            animation: fadeUp 1.5s ease-out;
-        }
 
-        .about-content h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-            animation: fadeUp 1.5s ease-out;
-        }
+    .about-me h1 {
+      font-size: 2.5rem;
+      /* Large font size for the title */
+      color: #73dcea;
+      /* Eye-catching cyan color */
+      margin-bottom: 30px;
+      margin-top: -55px;
+      /* Space below the heading */
+      text-transform: uppercase;
+      /* Uppercase letters for emphasis */
+      text-align: center;
+      /* Center align for a balanced look */
+      font-family: 'Arial', sans-serif;
+      /* Clean and professional font */
+      font-weight: bold;
+      /* Make the heading stand out */
+      letter-spacing: 2px;
+      /* Add spacing between letters */
+      text-shadow: 2px 2px 4px rgba(198, 103, 103, 0.2);
+      /* Subtle shadow for depth */
+      background: linear-gradient(90deg, #320679, #19810f);
+      /* Gradient effect */
+      -webkit-background-clip: text;
+      /* Clip the gradient to the text */
+      -webkit-text-fill-color: transparent;
+      /* Make the text gradient visible */
+    }
+    
 
-        .about-content p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: #F0F0F5;
-        }
+    /* Base styles */
+    .section-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      /* Space between Profile and the other sections */
+    }
 
-        .about-content button {
-            padding: 10px 20px;
-            background: linear-gradient(90deg, #82ebf2, #82ebf2);
-            border: none;
-            border-radius: 5px;
-            color: #1b1b32;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
+    .sections-group {
+      display: flex;
+      gap: 20px;
+      /* Space between Formal Education and Professional Life sections */
+    }
 
-        .about-content button:hover {
-            background: linear-gradient(90deg, #82ebf2, #edf2f3);
-        }
+    .section {
+      flex: 1;
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+      text-align: center;
+    }
 
-        /* Image Styling */
-        .about-image {
-            flex: 1;
-            max-width: 35%;
-            display: flex;
-            justify-content: center;
-            animation: fadeUp 1.5s ease-out;
-        }
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+    }
 
-        .about-image img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border-radius: 21%;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-        }
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .section-container {
+        flex-direction: column;
+        /* Stack sections vertically on tablets */
+        gap: 20px;
+      }
 
-        /* Additional Sections */
-        .extra-section {
-            padding: 50px 10%;
-            text-align: center;
-            opacity: 0;
-            animation: fadeUp 2s ease-out forwards;
-        }
+      .sections-group {
+        display: flex;
+        flex-direction: column;
+        /* Stack the education and professional sections vertically */
+        gap: 15px;
+      }
 
-        .extra-section:nth-child(2) {
-            animation-delay: 0.5s;
-        }
+      .section {
+        padding: 30px;
+        /* Reduce padding for smaller screens */
+      }
+    }
 
-        .extra-section:nth-child(3) {
-            animation-delay: 1s;
-        }
+    @media (max-width: 480px) {
+      .section-container {
+        gap: 15px;
+        /* Reduce space between sections for small devices */
+      }
 
-        .extra-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #82ebf2;
-            font-family: 'Playfair Display', serif;
-        }
+      .sections-group {
+        flex-direction: column;
+        /* Stack all sections vertically on mobile */
+        gap: 10px;
+      }
 
-        .extra-section p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #f0f0f5;
-        }
+      .section {
+        padding: 20px;
+        /* Reduce padding even more on mobile */
+      }
+    }
 
-        /* Keyframe Animations */
-        @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
 
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    .section h3 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 20px;
+      position: relative;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
 
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            .about-section {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px;
-            }
+    /* Base styles for the animated line */
+    .section h3::after {
+      content: '';
+      display: block;
+      width: 60px;
+      /* Default width of the animated line */
+      height: 6px;
+      background: linear-gradient(45deg, #ff4081, #00bcd4);
+      margin-top: 10px;
+      transition: width 0.3s ease;
+    }
 
-            .about-content {
-                max-width: 100%;
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
+    /* On hover, animate the width */
+    .section:hover h3::after {
+      width: 600px;
+      /* Default expanded width */
+    }
 
-            .about-image {
-                max-width: 100%;
-            }
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .section h3::after {
+        width: 40px;
+        /* Smaller width for tablets */
+      }
 
-            .about-content h1 {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
+      .section:hover h3::after {
+        width: 400px;
+        /* Adjusted expanded width for tablets */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section h3::after {
+        width: 30px;
+        /* Even smaller width for mobile */
+      }
+
+      .section:hover h3::after {
+        width: 250px;
+        /* Adjusted expanded width for mobile */
+      }
+    }
+
+
+    .section p {
+      color: #555;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* Icon Styles */
+    .section i {
+      font-size: 2.5rem;
+      color: #00bcd4;
+      margin-bottom: 20px;
+    }
+
+    /* Hover Effects on Icons */
+    .section i:hover {
+      color: #ff4081;
+      transform: rotate(15deg);
+    }
+
+
+
+
+
+    /* Float-up animation */
+    @keyframes floatUp {
+      0% {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+
+
+    /* Slide-Up Animation */
+    @keyframes slideUp {
+      0% {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    /*loading effect*/
+    /* About Me Slide-In Animation */
+    @keyframes slideInFromLeft {
+      0% {
+        transform: translateX(-100%);
+        /* Start off-screen */
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateX(0);
+        /* End at its normal position */
+        opacity: 1;
+      }
+    }
+
+    .about-me {
+      background: linear-gradient(145deg, rgba(0, 188, 212, 0.2), rgba(255, 64, 129, 0.2));
+      padding: 100px 50px;
+      margin-top: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      /* Initially invisible */
+      animation: none;
+      /* No animation on load */
+      transition: transform 1s ease-out, opacity 1s ease-out;
+      /* Slide-in transition */
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .about-me {
+        padding: 80px 30px;
+      }
+
+      .section-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    .education ul {
+      list-style-type: disc;
+      /* Use bullets for list items */
+      padding-left: 20px;
+      /* Indentation for the list */
+    }
+
+    .education li {
+      margin-bottom: 10px;
+      /* Space between the list items */
+    }
+
+
+
+    /*photo section*/
+
+    /* Photo Gallery Section CSS */
+    /* Photo Gallery Section CSS */
+    .photo-gallery {
+      padding: 50px;
+      background: linear-gradient(145deg, rgba(0, 188, 212, 0.2), rgba(255, 64, 129, 0.2));
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .photo-gallery h1 {
+      font-size: 2.5rem;
+      /* Large font size for the title */
+      color: #00bcd4;
+      /* Eye-catching cyan color */
+      margin-bottom: 30px;
+      /* Space below the heading */
+      text-transform: uppercase;
+      /* Uppercase letters for emphasis */
+      text-align: center;
+      /* Center align for a balanced look */
+      font-family: 'Arial', sans-serif;
+      /* Clean and professional font */
+      font-weight: bold;
+      /* Make the heading stand out */
+      letter-spacing: 2px;
+      /* Add spacing between letters */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      /* Subtle shadow for depth */
+      background: linear-gradient(90deg, #00bcd4, #006064);
+      /* Gradient effect */
+      -webkit-background-clip: text;
+      /* Clip the gradient to the text */
+      -webkit-text-fill-color: transparent;
+      /* Make the text gradient visible */
+    }
+
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-bottom: 3px solid #00bcd4;
+    }
+
+    .gallery-item p {
+      padding: 1px;
+      color: #555;
+      font-size: 1rem;
+    }
+
+    /* Caption Styles */
+    .caption {
+      font-size: 1rem;
+      
+      color: #fff;
+      text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 6px 13px;
+      background: linear-gradient(45deg, #00bcd4, #ff4081);
+      border-radius: 10px;
+      display: inline-block;
+      animation: fadeInCaption 2s ease-in-out, floatCaption 3s infinite alternate;
+      margin-top: 20px;
+    }
+
+    /* Hover Effect for Captions */
+    .caption:hover {
+      background: linear-gradient(45deg, #ff4081, #00bcd4);
+      transform: scale(1.1);
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Keyframes for Fade-In Animation */
+    @keyframes fadeInCaption {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Keyframes for Float Animation */
+    @keyframes floatCaption {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-10px);
+      }
+    }
+
+
+
+    /*text profile intro*/
+    .highlight {
+      color: #ff5733;
+      /* Highlight color */
+      font-weight: bold;
+    }
+
+    .profile h3 {
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .profile p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .profile i {
+      color: #3151ee;
+      /* Icon color */
+      margin-right: 8px;
+    }
+
+    .profile .fas.fa-plane-departure {
+      font-size: 1.2rem;
+    }
+
+    /*text Formal education*/
+
+    .education h3 {
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .education p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .education i {
+      color: #3498db;
+      /* Icon color */
+      margin-right: 8px;
+    }
+
+    .highlight {
+      color: #0c4564;
+      /* Highlight color */
+      font-weight: bold;
+    }
+
+    .education .fas.fa-graduation-cap {
+      font-size: 1.5rem;
+      color: #4715a5;
+    }
+
+
+    /* Footer */
+    footer {
+      background-color: #121212;
+      color: #000000;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      background-color: transparent;
+    }
+
+    footer p {
+      font-size: 1.2rem;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    footer p a {
+      color: #e83838;
+      text-decoration: none;
+    }
+
+    footer p a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+
+
 </head>
 
 <body>
-    <nav>
-        <div class="logo">Lishad's Portfolio</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="project.html">Projects</a></li>
-            <li><a href="contact.html">Contact Me</a></li>
-        </ul>
-    </nav>
+  <!-- Navbar -->
 
-    <section class="about-section">
-        <div class="about-content">
-            <h1>About Me</h1>
-            <p>Hi! I'm <span style="color: #80ee98;">Md Aurongojeb Lishad</span>, a BSc student at North South University, Bangladesh. My academic journey has been shaped by a strong interest in Engineering Economics, Data Science & Semi-Conductors.</p>
-            <button onclick="window.location.href='contact.html'">Get in Touch</button>
+
+  <!-- Intro Section -->
+  <section id="intro-section" class="intro-section">
+ 
+    <div class="intro-text">
+      <h2 class="gradient-text"> </h2>
+    </div>
+    
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about-me" class="about-me">
+    <div class="content">
+      <h1>Who am I?</h1>
+      <div class="section-container">
+
+
+        <!-- Profile Section -->
+        <div class="section profile">
+          <i class="fas fa-user"></i>
+          <h3>About Me</h3>
+          <p>
+            Hi, I'm <strong>MD Aurongojeb Lishad</strong>, a <span class="highlight">23-year-old</span> adventurer and
+            tech enthusiast. Currently, I'm pursuing a <strong>BSc Eng in Computer Science</strong> at <strong>North
+              South University</strong> in Dhaka, Bangladesh.
+            I currently reside in <strong>Dhaka, Bangladesh</strong>, and my hometown is Rangpur, Bangladesh. I am a
+            <strong>Muslim</strong>
+          </p>
+          <p>
+            When I'm not immersed in my studies, you can find me <span class="highlight">traveling the world</span> <i
+              class="fas fa-plane-departure"></i>.</p>
+          <p>I've explored <strong>5 countries</strong>-Singapore, Maldives,
+            Malaysia, Sri Lanka, and India.
+          </p>
+          <p>
+            Apart from traveling, I love <strong>gaming</strong> <i class="fas fa-gamepad"></i> and
+            <strong>music</strong> <i class="fas fa-music"></i>,<br> always seeking new experiences and adventures.
+          </p>
+          <p><br>
+            Let's connect and share stories!
+          </p>
         </div>
-        <div class="about-image">
-            <img src="me03.jpg" alt="Aurongojeb Lishad">
+
+        <!-- Container for Formal Education and Professional Life Sections -->
+        <div class="sections-group">
+
+
+          <!-- Formal Education Section -->
+          <div class="section education">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Formal Education</h3>
+            <p>
+              <i class="fas fa-university"></i><strong>Bachelor's Degree:</strong><br> <span class="highlight">North
+                South University</span>
+              <br>
+              <span class="highlight">Period:</span> 2022-Present
+            </p><br><br>
+            <p>
+              <i class="fas fa-school"></i><strong>Higher Secondary:</strong><br><span class="highlight">Police Lines
+                School & College,
+                Rangpur</span>
+              <br>
+              <span class="highlight">Period:</span> 2018-2020
+            </p>
+            <p><br>
+              <strong>Secondary School:</strong> <span class="highlight">Rangpur Zilla School</span> <i
+                class=""></i><br>
+            </p>
+          </div>
+
+
+          <!-- Professional Life Section -->
+          <div class="section professional">
+            <i class="fas fa-briefcase"></i>
+            <h3>Professional Life</h3>
+            <p>....</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="extra-section">
-        <h2>Educational Life</h2>
-        <p>I am currently pursuing my Bachelor of Science in Computer Science at North South University. My academic life is defined by consistent learning, innovation, and collaboration in projects that challenge my problem-solving skills.</p>
-    </section>
+  <!-- Photo Gallery Section -->
+  <section id="photo-gallery" class="photo-gallery">
+    <h1>My Photo Gallery</h1>
+    <div class="gallery-container">
+      <div class="gallery-item">
+        <img src="me100.jpg" alt="Photo 1">
+        <p>
+        <div class="caption">Maldives Diary in front of</div>
+        </p>
 
-    <section class="extra-section">
-        <h2>Personal Life</h2>
-        <p>Outside of academics, I enjoy exploring new technologies, reading about advancements in semi-conductors, and spending time with family and friends. I also have a passion for traveling and experiencing different cultures.</p>
-    </section>
+      </div>
+      <div class="gallery-item">
+        <img src="g1.jpg" alt="Photo 2">
+        <p>
+        <div class="caption">Caption 2</div>
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="g2.jpg" alt="Photo 3">
+        <p>
+        <div class="caption">Caption 2</div>
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="g3.jpg" alt="Photo 4">
+        <p>
+        <div class="caption">Caption 2</div>
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="g4.jpg" alt="Photo 4">
+        <p>
+        <div class="caption">Caption 2</div>
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="g5.jpg" alt="Photo 4">
+        <p>
+        <div class="caption">Caption 2</div>
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="g6.jpg" alt="Photo 4">
+        <p>
+        <div class="caption">Caption 2</div>
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="g7.jpg" alt="Photo 4">
+        <p>
+        <div class="caption">Caption 2</div>
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="g8.jpg" alt="Photo 4">
+        <p>
+        <div class="caption">Caption 2</div>
+        </p>
+      </div>
+    </div>
+
+
+
+
+
+  </section>
+
+
+
+  <script>
+    // Scroll to specific section function
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      window.scrollTo({
+        top: section.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const aboutSection = document.querySelector('.about-me');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            aboutSection.classList.add('show'); // Add the class when in viewport
+          }
+        });
+      });
+
+      observer.observe(aboutSection);
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer>
+    <p><b>&copy; 2025 Md Aurongojeb Lishad | <a href="contact.html">Contact</a></b></p>
+    <p>Developed by Aurongojeb Lishad</p>
+  </footer>
+
+
 </body>
 
 </html>
