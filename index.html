@@ -165,6 +165,7 @@
         .rightSection img {
             width: 86%;
             max-width: 391px;
+            margin-left: 20px;
             aspect-ratio: 1 / 1;
             border-radius: 54%;
             object-fit: cover;
@@ -720,6 +721,8 @@
 
 
 </head>
+<link rel="preload" as="image" href="me200.webp" type="image/webp">
+</head>
 
 <body>
     <header>
@@ -792,7 +795,10 @@
 
                 <!-- New 3D rotation element -->
                 <div class="rotating-box"></div>
-                <img src="me200.jpg" alt="Profile Picture">
+                <picture>
+                    <source srcset="me200.webp" type="image/webp">
+                    <img src="me200.jpg" alt="Profile Picture">
+                  </picture>
                 <!-- Social Links -->
                 <div class="socialLinks">
                     <a href="https://facebook.com/yourprofile" target="_blank">
