@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Aurongojeb Lishad</title>
+    <title>Projects & Writings - Aurongojeb Lishad</title>
     <style>
         /* General Reset */
         * {
@@ -14,235 +14,827 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1e1e2f, #282846);
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(45deg, #2c3e50, #34495e, #41312c, #8e44ad);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 5s ease infinite;
             color: #fff;
             min-height: 100vh;
-            overflow: hidden;
-            position: relative;
-            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
         }
 
-        body::before {
-            content: "";
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+
+        /* General navigation styles */
+        nav {
+            width: 100%;
+            background: rgba(21, 18, 53, 0.6);
+            /* Semi-transparent dark background */
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            z-index: -1;
-            animation: zoomEffect 20s ease-in-out infinite;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Brand (logo or text) */
+        .brand {
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Navigation links */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(135deg, #e1a6ff, #ff7eb3);
+            color: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(225, 166, 255, 0.5);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .nav-links a {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+            }
         }
 
 
         h1 {
             text-align: center;
-            font-size: 3rem;
-            margin-top: 20px;
-            z-index: 10;
-            position: relative;
-        }
-
-        nav {
-            width: 100%;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            z-index: 10;
-        }
-
-        nav a {
-            text-decoration: none;
+            font-size: 1.5rem;
+            margin: 87px 0;
+            font-weight: 900;
+            text-transform: uppercase;
             color: #fff;
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin: 0 15px;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #b5e40b;
-            
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            justify-items: center;
-            padding: 50px 30px;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 10;
-        }
-
-        .project-card {
-            background: #08557F;
-            border-radius: 10px;
-            padding: 20px;
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            text-align: center;
+            letter-spacing: 6px;
+            padding: 15px 20px;
+            background: linear-gradient(45deg, #ff6b6b, #f06595, #845ef7, #339af0);
+            background-size: 300% 300%;
+            animation: gradientShift 6s infinite;
+            border-radius: 15px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h1::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 20%, transparent 60%);
+            animation: sparkleEffect 4s infinite ease-in-out;
+            transform: rotate(-45deg);
+            z-index: 1;
+        }
+
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 80%;
+            height: 4px;
+            background: #fff;
+            border-radius: 10px;
+            transform: translateX(-50%);
+            animation: bounceEffect 2s infinite ease-in-out;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes sparkleEffect {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: rotate(-45deg) scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: rotate(-45deg) scale(1.2);
+            }
+        }
+
+        @keyframes bounceEffect {
+
+            0%,
+            100% {
+                height: 4px;
+            }
+
+            50% {
+                height: 12px;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+                padding: 10px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+                padding: 8px 10px;
+                letter-spacing: 3px;
+            }
+        }
+
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            margin: 0 auto;
+        }
+
+        section {
+            background: transparent;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #249288, #3186db);
+            padding: 8px 25px;
+            border-radius: 8px;
+            text-align: center;
+            display: inline-block;
+            box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.3), 0 8px 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        section h2:hover {
+            transform: translateY(-5px);
+            box-shadow: inset 0 -5px 15px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .project-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+        /* Projects Section */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            opacity: 0;
+            animation: fadeInProjects 1.5s ease forwards;
+        }
+
+        @keyframes fadeInProjects {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .project-card {
+            background: rgba(249, 250, 251, 0.9);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: fadeInCard 0.7s ease-out forwards;
+        }
+
+        .project-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .project-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .project-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeInCard {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* General Styles for Projects Section */
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 20px;
+            background-color: transparent;
+        }
+
+        /* Container for Project Card */
+        .project-card {
+            width: 100%;
+            max-width: 350px;
+            height: 450px;
+            perspective: 1000px;
+            /* Enable 3D space for card flip */
+            margin-bottom: 30px;
+        }
+
+        /* Project Card Flip Effect */
+        .project-card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover .project-card-inner {
+            transform: rotateY(180deg);
+            /* Flip the card on hover */
+        }
+
+        /* Front of the Card (Image + Title with Color) */
+        .project-card-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease;
+            background: linear-gradient(to right, #3498db, #8e44ad);
+            /* Gradient background */
+        }
+
+        .project-card-front img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card-front:hover img {
+            transform: scale(1.1);
+            /* Zoom in image on hover */
+        }
+
+        /* Title of the Card */
+        .project-card-front h3 {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 1.4rem;
             color: #fff;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
         }
 
-        .project-card p {
+        /* Back of the Card (Description + Button) */
+        .project-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+            /* Start with back facing away */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover .project-card-back {
+            opacity: 1;
+        }
+
+        /* Description */
+        .project-card-back p {
             font-size: 1rem;
-            color: #ddd;
-            margin-bottom: 20px;
+            color: #333;
+            flex-grow: 1;
         }
 
-        .project-card a {
-            font-size: 1.2rem;
-            color: #fff;
+        /* View Project Button Styling */
+        .project-card-back a {
             text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            background: #5F7429;
-            transition: background-color 0.3s ease;
+            color: #fff;
+            background-color: #15b1e0;
+            padding: 14px 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
         }
 
-        .project-card a:hover {
-            background-color: #08891b;
+        /* Hover Effects */
+        .project-card-back a:hover {
+            background-color: #0f4a74;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
         }
 
-        /* Canvas Container */
-        #bouncing-balls {
+        /* Adding a "glow" effect on hover */
+        .project-card-back a:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(99, 234, 46, 0.5);
+            border-radius: 50px;
+            z-index: -1;
+            transition: all 0.4s ease;
+            transform: scale(0);
+        }
+
+        .project-card-back a:hover:before {
+            transform: scale(1);
+        }
+
+        /* Responsive Styling */
+
+        /* Tablet View (1024px and below) */
+        @media (max-width: 1024px) {
+            .project-card {
+                width: calc(50% - 20px);
+                /* Two cards per row on tablets */
+            }
+        }
+
+        /* Mobile View (768px and below) */
+        @media (max-width: 768px) {
+            .project-card {
+                width: 100%;
+                /* One card per row on mobile */
+            }
+
+            .project-card-front img {
+                height: 200px;
+                /* Smaller image size on mobile */
+            }
+
+            .project-card-front h3 {
+                font-size: 1.2rem;
+                /* Adjust font size */
+            }
+        }
+
+        /* Extra Small Screens (480px and below) */
+        @media (max-width: 480px) {
+            .project-card {
+                width: 100%;
+            }
+
+            .project-card-front img {
+                height: 180px;
+                /* Smaller image for extra-small screens */
+            }
+
+            .project-card-front h3 {
+                font-size: 1rem;
+                /* Smaller font size */
+            }
+
+            .project-card-back a {
+                padding: 8px 15px;
+                /* Smaller button */
+                font-size: 0.9rem;
+            }
+        }
+
+
+
+
+
+        /* Writing Section */
+        .writings {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .writings li {
+            width: 500px;
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .writings li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .writings li img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .writings li h3 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .writings li p {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+
+        .writings li .read-more-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: transparent;
+            color: #038230;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 12px 18px;
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #6dd5fa, #3498db) 1;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+
+        .writings li .read-more-btn::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            background: linear-gradient(45deg, #6dd5fa, #3498db);
+            z-index: -1;
+            transition: transform 0.4s ease;
+            transform: scaleX(0);
+            transform-origin: left;
+            border-radius: 30px;
+        }
+
+        .writings li .read-more-btn:hover::before {
+            transform: scaleX(1);
+        }
+
+        .writings li .read-more-btn:hover {
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .writings li .read-more-btn .glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            box-shadow: 0 0 20px rgba(52, 152, 219, 0.5), 0 0 40px rgba(52, 152, 219, 0.3);
+            opacity: 0;
             pointer-events: none;
-            z-index: 1;
+            animation: glowEffect 1.5s infinite ease-in-out;
+        }
+
+        @keyframes glowEffect {
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f3f3f3;
+            color: #f8f8f8;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            background-color: transparent;
+        }
+
+        footer p {
+            font-size: 1.2rem;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        footer p a {
+            color: #5fe49f;
+            text-decoration: none;
+        }
+
+        footer p a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
-    <div id="bouncing-balls"></div>
-
     <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <div class="nav-container">
+            <a href="#" class="brand"></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                
+                <a href="contact.html">Contact Me</a>
+            </div>
+        </div>
     </nav>
 
-    <h1>My Projects</h1>
 
-    <!-- Projects Section -->
-    <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="project-card">
-            <h3>Project 1</h3>
-            <p>Description of Project 1</p>
-            <a href="https://github.com/user/project1" target="_blank">View Project</a>
-        </div>
+    <h1>My Projects & Writings</h1>
 
-        <!-- Project 2 -->
-        <div class="project-card">
-            <h3>Project 2</h3>
-            <p>Description of Project 2</p>
-            <a href="https://github.com/user/project2" target="_blank">View Project</a>
-        </div>
+    <div class="container">
+        <!-- Projects Section -->
+        <section class="projects-section">
+            <h2>Projects</h2>
+            <div class="projects">
 
-        <!-- Project 3 -->
-        <div class="project-card">
-            <h3>Project 3
 
-            </h3>
-            <p>Description of Project 3 uafbzsjfnkjzshfcizsjhbfias cnmzxhcfasubfzsjcvjzxcvz
-                zfzabvzpjvhjzxbvnzknvkjzjvzdjnvz
-            </p>
-            <a href="https://github.com/user/project3" target="_blank">View Project</a>
-        </div>
-        <!-- Project 4 -->
-        <div class="project-card">
-            <h3>Project 3</h3>
-            <p>Description of Project 3</p>
-            <a href="https://github.com/user/project3" target="_blank">View Project</a>
-        </div>
-        <!-- Project 5 -->
-        <div class="project-card">
-            <h3>Project 3</h3>
-            <p>Description of Project 3</p>
-            <a href="https://github.com/user/project3" target="_blank">View Project</a>
-        </div>
+
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <!-- Front of the Card -->
+                        <div class="project-card-front">
+                            <img src="p1.jpg" alt="Automated Library Management System">
+                            <h3>Automated Library Management System</h3>
+                        </div>
+                        <!-- Back of the Card -->
+                        <div class="project-card-back">
+                            <div>
+                                <p>
+                                    📘 <strong>Automated Library Management System</strong><br>
+                                    A smart platform with:
+                                </p>
+                                <p>
+                                    <br>📖 <strong>Hybrid Book Recommendations</strong><br>
+                                    ⏰ <strong>Real-Time Book Availability</strong><br>
+                                    📗 <strong>Auto-Return & Reservations</strong><br>
+                                    🚀 <strong>Smart Notifications</strong><br>
+                                    📕 <strong>Pre-Book ,Upcoming Books</strong>
+                                </p>
+                                <p><strong><br>Tech Stack:</strong> PHP, MySQL, HTML, CSS, JS.</p>
+                            </div>
+                            <a href="https://github.com/Lishad-02/VOID" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <!-- Front of the Card -->
+                        <div class="project-card-front">
+                            <img src="p2.jpg" alt="Software Engineering Project">
+                            <h3>Software Engineering Project</h3>
+                        </div>
+                        <!-- Back of the Card -->
+                        <div class="project-card-back">
+                            <p>
+                            <p>
+                                This project follows best practices in software development:
+                            </p>
+                            <p>
+                                ✅ <strong>MVC Architecture</strong><br>
+                                ✅ <strong>Consistent Coding Standards</strong><br>
+                                ✅ <strong>Comprehensive Unit Testing</strong><br>
+                                ✅ <strong>Task Management via Trello</strong><br>
+                                ✅ <strong>Communication through Discord</strong><br>
+                                ✅ <strong>Version Control via GitHub</strong><br>
+                                ✅ <strong>Detailed Documentation </strong>
+                            </p>
+                            <p><strong>Tech Stack:</strong> PHP, HTML, CSS, PHPUnit, Doxygen, Trello, Discord.</p>
+                            </p>
+                            <a href="https://github.com/Lishad-02/CSE327_Project" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <!-- Front of the Card -->
+                        <div class="project-card-front">
+                            <img src="p3.jpg" alt="Basic Database Project">
+                            <h3>Basic Database Project</h3>
+                        </div>
+                        <!-- Back of the Card -->
+                        <div class="project-card-back">
+                            <p>
+                                A simple yet effective project designed to manage a database of book inventory:
+                            </p>
+                            <p>
+                                ✅ <strong>Basic CRUD Operations</strong><br>
+                                ✅ <strong>Easy Management of Book Inventory</strong>
+                            </p>
+                            <p><strong>Tech Stack:</strong> PHP, MySQL, HTML, CSS.</p>
+                            <a href="https://github.com/Lishad-02/BIBLIO" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <!-- Front of the Card -->
+                        <div class="project-card-front">
+                            <img src="p4.png" alt="My Portfolio Website">
+                            <h3>My Portfolio Website</h3>
+                        </div>
+                        <!-- Back of the Card -->
+                        <div class="project-card-back">
+                            <p>A personal portfolio website to showcase:
+                            </p>
+                            <p>
+                                ✅ <strong>My Skills</strong><br>
+                                ✅ <strong>My Projects</strong><br>
+                                ✅ <strong>My Interests</strong>
+                            </p>
+                            <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript.</p>
+                            <a href="https://github.com/Lishad-02/My-Portfolio-Website" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+        <!-- Writings Section -->
+        <section class="writings-section">
+            <h2>Writings</h2>
+            <ul class="writings">
+
+
+
+                <!-- Writings 1 -->
+                <li>
+                    <img src="l1.jpg" alt="Writing 1">
+                    <h3>Unlocking Bangladesh's Potential in the Global Tech Industry: Strategy and Timeframe to Compete
+                        with Giants.</h3>
+                    <p>As per the Global Location Service Index ,Bangladesh currently holds the 21st position in the
+                        realm of outsourcing, particularly in IT outsourcing and software development services.
+                        Additionally, The Oxford Internet Institute's research reveals that Bangladesh boasts the
+                        second-highest proportion of independent contractors globally. Experts are increasingly
+                        optimistic about Bangladesh emerging as the next IT hotspot in Asia. But is it genuinely
+                        possible for this growth model to enhance Bangladesh's wealth?
+                    </p>
+                    <a href="https://www.linkedin.com/pulse/unlocking-bangladeshs-potential-tech-industry-competing-lishad/?trackingId=zpA0kV20gXSowSYqy%2FU7BA%3D%3D"
+                        class="read-more-btn">
+                        <span class="glow"></span>Read Full Article
+                    </a>
+                </li>
+
+                <!-- Writings 2 -->
+
+
+
+            </ul>
+        </section>
     </div>
 
-    <script>
-        // Ball animation
-        const container = document.getElementById('bouncing-balls');
-        const numBalls = 10; // Number of balls
-        const balls = [];
 
-        const random = (min, max) => Math.random() * (max - min) + min;
 
-        // Create balls
-        for (let i = 0; i < numBalls; i++) {
-            const ball = document.createElement('div');
-            ball.style.position = 'absolute';
-            ball.style.width = `${random(20, 50)}px`;
-            ball.style.height = ball.style.width;
-            ball.style.borderRadius = '50%';
-            ball.style.background = `radial-gradient(circle, white, white)`;
-            ball.style.top = `${random(0, window.innerHeight)}px`;
-            ball.style.left = `${random(0, window.innerWidth)}px`;
-            ball.velocityX = random(2, 5) * (Math.random() < 0.5 ? 1 : -1);
-            ball.velocityY = random(2, 5) * (Math.random() < 0.5 ? 1 : -1);
-            balls.push(ball);
-            container.appendChild(ball);
-        }
+    <!-- Footer -->
+    <footer>
+        <p><b>&copy; 2025 Md Aurongojeb Lishad | <a href="contact.html">Contact</a></b></p>
+        <p>Developed by Md Aurongojeb Lishad</p>
+    </footer>
 
-        // Animate balls
-        function animate() {
-            balls.forEach((ball) => {
-                const rect = ball.getBoundingClientRect();
-                let nextX = rect.left + ball.velocityX;
-                let nextY = rect.top + ball.velocityY;
-
-                // Check boundaries
-                if (nextX <= 0 || nextX + rect.width >= window.innerWidth) {
-                    ball.velocityX *= -1;
-                }
-                if (nextY <= 0 || nextY + rect.height >= window.innerHeight) {
-                    ball.velocityY *= -1;
-                }
-
-                ball.style.left = `${nextX}px`;
-                ball.style.top = `${nextY}px`;
-            });
-
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-    </script>
 </body>
 
 </html>
